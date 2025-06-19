@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
@@ -8,7 +9,8 @@ import macncheeseImg from '@/assets/macncheese.jpg';
 import pizzaImg from '@/assets/pizza.jpg';
 import schnitzelImg from '@/assets/schnitzel.jpg';
 import tomatoSaladImg from '@/assets/tomato-salad.jpg';
-import classes from './image.slideShow.module.css';
+
+import classes from './imageSlideshow.module.css';
 
 const images = [
   { image: burgerImg, alt: 'A delicious, juicy burger' },
@@ -21,27 +23,32 @@ const images = [
 ];
 
 export default function ImageSlideshow() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex < images.length - 1 ? prevIndex + 1 : 0
-      );
-    }, 5000);
+      setCurrentIndex(prev => (prev + 1) % images.length);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className={classes.slideshow}>
-      {images.map((image, index) => (
-        <Image
-          key={index}
-          src={image.image}
-          className={index === currentImageIndex ? classes.active : ''}
-          alt={image.alt}
-        />
+      {images.map((img, idx) => (
+        <div
+          key={idx}
+          className={`${classes.slide} ${idx === currentIndex ? classes.active : ''}`}
+        >
+          <Image
+            src={img.image}
+            alt={img.alt}
+            fill
+            sizes="100%"
+            style={{ objectFit: 'cover' }}
+            priority={idx === 0}
+          />
+        </div>
       ))}
     </div>
   );

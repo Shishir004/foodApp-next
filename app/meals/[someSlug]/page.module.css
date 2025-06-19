@@ -1,15 +1,20 @@
 .header {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   padding: 2rem 1rem;
   gap: 3rem;
   margin: auto;
   max-width: 80rem;
+  flex-direction: row;
 }
 
 .image {
   position: relative;
   width: 30rem;
   height: 20rem;
+  flex-shrink: 0;
 }
 
 .header img {
@@ -28,14 +33,14 @@
 
 .headerText h1 {
   margin: 0;
-  font-size: 3.5rem;
+  font-size: 3rem;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 .creator {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #cfa69b;
   font-style: italic;
 }
@@ -57,12 +62,13 @@
 }
 
 .summary {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  margin-top: 1rem;
 }
 
 .instructions {
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 1.125rem;
+  line-height: 1.6;
   background-color: #6e6464;
   color: #13120f;
   border-radius: 8px;
@@ -81,6 +87,7 @@
   animation: flash 1s ease-in-out infinite alternate;
 }
 
+/* === Animations === */
 @keyframes fade-slide-in-from-left {
   0% {
     opacity: 0;
@@ -123,5 +130,41 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+/* === Responsive Fixes === */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .image {
+    width: 90vw;
+    height: 50vw;
+  }
+
+  .headerText {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .headerText h1 {
+    font-size: 2rem;
+  }
+
+  .creator {
+    font-size: 1rem;
+  }
+
+  .summary {
+    font-size: 1rem;
+  }
+
+  .instructions {
+    font-size: 1rem;
+    padding: 1.5rem;
+    margin: 1.5rem 1rem;
   }
 }

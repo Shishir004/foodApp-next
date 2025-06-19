@@ -1,61 +1,100 @@
 .header {
-    gap: 3rem;
-    margin: 3rem auto 5rem auto;
-    width: 90%;
-    max-width: 75rem;
-    color: #ddd6cb;
-    font-size: 1.5rem;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 3rem auto 5rem auto;
+  width: 90%;
+  max-width: 75rem;
+  color: #ddd6cb;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+}
+
+.highlight {
+  background: linear-gradient(90deg, #f9572a, #ff8a05);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main {
+  width: 90%;
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #ddd6cb;
+}
+
+.perks {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.perks li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.perks li:hover {
+  transform: translateY(-5px);
+}
+
+.perks img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+}
+
+.perks p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+  color: #ddd6cb;
+}
+
+/* Responsive Text Sizing */
+@media (max-width: 768px) {
+  .header {
+    font-size: 1.2rem;
+    margin: 2rem auto;
   }
-  
+
   .header h1 {
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .highlight {
-    background: linear-gradient(90deg, #f9572a, #ff8a05);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .main {
-    width: 90%;
-    max-width: 40rem;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .main h2 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
-    margin-bottom: 3rem;
-    color: #ddd6cb;
   }
-  
-  .perks {
-    list-style: none;
-    margin: 3rem 0;
-    padding: 0;
+
+  .main h2 {
+    font-size: 1.75rem;
   }
-  
-  .perks li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-  
+
   .perks img {
-    width: 8rem;
-    height: 8rem;
-    object-fit: contain;
+    width: 5rem;
+    height: 5rem;
   }
-  
+
   .perks p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0;
-    color: #ddd6cb;
+    font-size: 1rem;
   }
+}

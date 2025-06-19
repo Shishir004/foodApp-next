@@ -1,26 +1,33 @@
 .slideshow {
   position: relative;
   width: 100%;
-  height: 100%;
-  border-radius: 8px;
+  height: 25rem;
+  max-width: 40rem;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
 }
 
-.slideshow img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.slide {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
-  transform: scale(1.1) translateX(-1rem) rotate(-5deg);
-  transition: all 0.5s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 0;
 }
 
-.slideshow .active {
-  z-index: 1;
+.active {
   opacity: 1;
-  transform: scale(1) translateX(0) rotate(0);
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slideshow {
+    height: 18rem;
+    max-width: 100%;
+  }
 }
